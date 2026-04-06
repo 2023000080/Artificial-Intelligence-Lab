@@ -31,11 +31,15 @@ print("Implication (p -> q) when p=True, q=True:", result_sympy)
 # ----------- PYDATALOG -----------
 print("\nInferential logic using pyDatalog")
 
+pyDatalog.clear()  # VERY IMPORTANT
+
 pyDatalog.create_terms('parent, grandparent, X, Y, Z')
 
-+ parent("john", "mary")
-+ parent("mary", "sam")
+# Add facts (correct way)
++ parent('john', 'mary')
++ parent('mary', 'sam')
 
+# Rule
 grandparent(X, Z) <= parent(X, Y) & parent(Y, Z)
 
 print("Grandparent relation:")
